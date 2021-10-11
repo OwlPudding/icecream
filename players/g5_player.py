@@ -50,3 +50,49 @@ class Player:
             action = "pass"
             values = next_player
         return {"action": action,  "values": values}
+        """
+        Select the next best player to pass to
+        ---
+        highest_box = None
+        highest_box = { 0: [() # coords, 0 # score], ... }
+
+        if last turn:
+            for loop over x (i < 22, i += 1)
+                for loop over y (j < 13, i += 1)
+                    players = list(range(0, get_player_count()))
+
+                    for player in players:
+                        max_preference = self.state.prefs[player]
+                        sum each square according to max preference
+                        if sum > highest_box[player]:
+                            highest_box[player][0] = (i, j)
+                            highest_box[player][1] = sum
+        """
+        """
+        Simulate game for next players according to moves
+        ---
+        highest_box = None
+        highest_box = { 0: [() # coords, 0 # score], ... }
+        copy_bowl = bowl
+
+        list_of_cell_rewards = []
+        for loop over x (i < 22, i += 1)
+            for loop over y (j < 13, i += 1)
+                players = list(range(0, get_player_count()))
+                list_of_player_rewards = []
+
+                for i in range(len(players)):
+                    for player in players:
+                        max_preference = self.state.prefs[player]
+                        sum each square according to max preference
+                        if sum > highest_box[player]:
+                            highest_box[player][0] = (i, j)
+                            highest_box[player][1] = sum
+                
+                    list_of_player_rewards.append(reward)
+                    get best player
+                    update copy_bowl with best player's move
+                list_of_cell_rewards.append(np.mean(np.array(list_of_player_rewards)))
+        
+        get index of highest element in list_of_cell_rewards
+        """
