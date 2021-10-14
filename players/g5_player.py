@@ -63,10 +63,14 @@ class Player:
 
                     for player in players:
                         max_preference = self.state.prefs[player]
-                        sum each square according to max preference
+                        calc each individual score for 4x4 and sum
                         if sum > highest_box[player]:
                             highest_box[player][0] = (i, j)
                             highest_box[player][1] = sum
+        """
+        """
+        1. modify greedy to avg
+        2. next pass
         """
         """
         Simulate game for next players according to moves
